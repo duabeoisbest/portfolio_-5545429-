@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
 
 class SliderPage extends StatefulWidget {
+  final double initialValue;
+
+  const SliderPage({required this.initialValue, Key? key}) : super(key: key);
+
   @override
   _SliderPageState createState() => _SliderPageState();
 }
 
 class _SliderPageState extends State<SliderPage> {
-  double _value = 50;
+  late double _value;
+
+  // Implementieren zur Erwweiterung an main.dart
+
+@override
+void initState() {
+  super.initState();
+  _value = widget.initialValue;
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +43,13 @@ class _SliderPageState extends State<SliderPage> {
             width: _value,
             color: Colors.blue.withOpacity(_value / 100),
           ), 
+          // mo rong cho elevatedbutton
+          SizedBox(height:20),
+          ElevatedButton(
+              child: Text('Zurück'),
+              onPressed: () => Navigator.pop(context, _value),
+              )
+
         ],
       ),
     );

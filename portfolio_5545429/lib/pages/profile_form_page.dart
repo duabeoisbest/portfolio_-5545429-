@@ -16,7 +16,9 @@ class _ProfileFormPageState extends State<ProfileFormPage> {
       showDialog(context: context, builder: (_) => AlertDialog(
         title: Text('Eingaben'),
         content: Text('Name: $_name\nEmail: $_email\nÜber mich: $_about'),
-        actions: [TextButton(onPressed: () => Navigator.pop(context), child: Text('OK'))],
+        actions: [TextButton(onPressed: () => Navigator.pop(context,
+        // hinzufugen beim Absenden
+         {'name': _name, 'email': _email, 'about': _about,} ),child: Text('OK')),],
       ),
       );
     }
