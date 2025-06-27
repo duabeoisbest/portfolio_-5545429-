@@ -4,27 +4,11 @@ import 'pages/settings_page.dart';
 import 'pages/profile_form_page.dart';
 import 'pages/summary_page.dart';
 
-import 'pages/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyPortfolioApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      // title bei HomePage weg
-      home: const HomePage(),
-    );
-  }
-}
 
 class MyPortfolioApp extends  StatefulWidget{
   @override

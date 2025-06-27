@@ -1,9 +1,11 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 class SliderPage extends StatefulWidget {
   final double initialValue;
 
-  const SliderPage({required this.initialValue, Key? key}) : super(key: key);
+  const SliderPage({required this.initialValue, super.key});
 
   @override
   _SliderPageState createState() => _SliderPageState();
@@ -24,10 +26,16 @@ void initState() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Slider - Seite')),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      appBar: AppBar(title: Text('Slider Test noch mal')),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+
+        // dong 33 cu :mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // them dong so 36
+          Text('Du bist auf der SliderPage'),
+          Text('Wert: ${_value.round()}'),
           Slider(
             value: _value,
             min: 0,
@@ -36,22 +44,11 @@ void initState() {
             label: _value.round().toString(),
             onChanged: (val) => setState(() => _value = val),
           ),
-          Text('Wert: (_value.round()}'),
-          // missing $ zeichen inbetween ?
-          Container(
-            height: 100,
-            width: _value,
-            color: Colors.blue.withOpacity(_value / 100),
-          ), 
-          // mo rong cho elevatedbutton
-          SizedBox(height:20),
-          ElevatedButton(
-              child: Text('Zurück'),
-              onPressed: () => Navigator.pop(context, _value),
-              )
-
+          ElevatedButton(onPressed: () => Navigator.pop(context, _value), child: Text('Zurück'),),
+          
         ],
       ),
-    );
+        ),
+          );
   }
 }
